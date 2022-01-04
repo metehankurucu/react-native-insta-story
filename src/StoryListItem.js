@@ -29,7 +29,8 @@ type Props = {
     swipeText?: string,
     customSwipeUpComponent?: any,
     customCloseComponent?: any,
-    stories: IUserStoryItem[]
+    stories: IUserStoryItem[],
+    imageStyle?: any
 };
 
 export const StoryListItem = (props: Props) => {
@@ -170,7 +171,7 @@ export const StoryListItem = (props: Props) => {
                 <View style={styles.backgroundContainer}>
                     <Image onLoadEnd={() => start()}
                         source={{uri: content[current].image}}
-                        style={styles.image}
+                        style={[styles.image, props.imageStyle]}
                     />
                     {load && <View style={styles.spinnerContainer}>
                         <ActivityIndicator size="large" color={'white'}/>

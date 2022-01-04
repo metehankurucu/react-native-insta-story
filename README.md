@@ -39,6 +39,7 @@ import InstaStory from 'react-native-insta-story';
 | customSwipeUpComponent | For use custom component for swipe area | component |  |
 | customCloseComponent | For use custom component for cloe button | component |  |
 | avatarSize | Size of avatar circle | number | 60 |
+| imageStyle | Style of story image | object |  |
 
 ## Usage
 ```javascript

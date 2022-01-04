@@ -20,6 +20,7 @@ type Props = {
     customSwipeUpComponent?: any,
     customCloseComponent?: any,
     avatarSize?: number,
+    imageStyle?: any
 };
 
 LogBox.ignoreLogs(['Warning: componentWillReceiveProps']); // Ignore log notification by message
@@ -36,7 +37,8 @@ export const Story = (props: Props) => {
         swipeText,
         customSwipeUpComponent,
         customCloseComponent,
-        avatarSize
+        avatarSize,
+        imageStyle
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,6 +94,7 @@ export const Story = (props: Props) => {
                                currentPage={currentPage}
                                onFinish={onStoryFinish}
                                swipeText={swipeText}
+                               imageStyle={imageStyle}
                                customSwipeUpComponent={customSwipeUpComponent}
                                customCloseComponent={customCloseComponent}
                                onClosePress={() => {
