@@ -1,9 +1,10 @@
 {
-  "name": "react-native-insta-story",
+  "name": "@metehankurucu/react-native-insta-story",
   "title": "React Native Insta Story",
   "version": "1.1.2",
   "description": "Story component for React Native.",
   "main": "index.js",
+  "license": "MIT",
   "files": [
     "README.md",
     "android",
@@ -16,8 +17,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/caglardurmus/react-native-insta-story.git",
-    "baseUrl": "https://github.com/caglardurmus/react-native-insta-story"
+    "url": "git+https://github.com/metehankurucu/react-native-insta-story.git",
+    "baseUrl": "https://github.com/metehankurucu/react-native-insta-story"
   },
   "keywords": [
     "react-native",
@@ -29,6 +30,12 @@
     "name": "Ahmet Çağlar Durmuş",
     "email": "caglardurmus@icloud.com"
   },
+  "contributors": [
+    {
+      "name": "Metehan Kurucu",
+      "email": "metehankurucu@gmail.com"
+    }
+  ],
   "readmeFilename": "README.md",
   "peerDependencies": {
     "react": ">=16.8.1",

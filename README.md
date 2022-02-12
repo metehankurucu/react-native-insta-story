@@ -4,16 +4,18 @@
 <img src="./images/example.gif" height="500" />
 </p>
 
+### Original repo https://github.com/caglardurmus/react-native-insta-story
+
 ## Install
 
 #### 1. Step
 ```javascript
-npm install react-native-insta-story --save
+npm install @metehankurucu/react-native-insta-story --save
 ```
 or
 
 ```javascript
-yarn add react-native-insta-story 
+yarn add @metehankurucu/react-native-insta-story
 ```
 
 #### 2. Step
@@ -23,7 +25,7 @@ cd ios && pod install
 
 ## Import
 ```javascript
-import InstaStory from 'react-native-insta-story';
+import InstaStory from '@metehankurucu/react-native-insta-story';
 ```
 
 ## Props
