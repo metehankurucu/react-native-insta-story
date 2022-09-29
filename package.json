@@ -1,7 +1,7 @@
 {
   "name": "@metehankurucu/react-native-insta-story",
   "title": "React Native Insta Story",
-  "version": "1.1.2",
+  "version": "1.2.0",
   "description": "Story component for React Native.",
   "main": "index.js",
   "license": "MIT",
