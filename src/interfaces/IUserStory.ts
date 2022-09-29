@@ -1,7 +1,6 @@
-export interface IUserStory {
-    user_id: number,
-    user_image: string,
-    user_name: string,
+import { IUser } from './IUser';
+
+export interface IUserStory extends IUser {
     stories: IUserStoryItem[]
 }
 

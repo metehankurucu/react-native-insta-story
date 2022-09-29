@@ -29,7 +29,14 @@ class StoryCircleListItem extends Component {
     }
 
     render() {
-        const {item, unPressedBorderColor, pressedBorderColor, avatarSize} = this.props;
+        const {
+            item, 
+            unPressedBorderColor, 
+            pressedBorderColor, 
+            avatarSize,
+            renderCreateButton = () => {},
+            currentUserId = null,
+        } = this.props;
         const {isPressed} = this.state;
         return (
             <View style={styles.container}>
@@ -64,6 +71,9 @@ class StoryCircleListItem extends Component {
                         defaultSource={Platform.OS === 'ios' ? DEFAULT_AVATAR : null}
                     />
                 </TouchableOpacity>
+                {
+                  String(item.user_id) === String(currentUserId) ? renderCreateButton() : null
+                }
             </View>
         );
     }

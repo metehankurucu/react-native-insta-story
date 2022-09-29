@@ -14,20 +14,44 @@ class StoryCircleListView extends Component {
             handleStoryItemPress,
             unPressedBorderColor,
             pressedBorderColor,
-            avatarSize
+            avatarSize,
+            renderCreateButton,
+            currentUser,
+            onCreate
         } = this.props;
+
+        const _data = data?.filter(item => String(item?.user_id) !== String(currentUser?.user_id)) || [];
+        const currentUserStories = data.filter(item => item?.user_id == currentUser?.user_id)?.[0]?.stories || [];
+        const currentUserData = {
+            ...currentUser,
+            stories: currentUserStories 
+        };
 
         return (
             <View>
                 <FlatList
                     keyExtractor={(item, index) => index.toString()}
-                    data={data}
+                    data={_data}
                     horizontal
                     style={{paddingLeft: 12}}
                     showsVerticalScrollIndicator={false}
                     showsHorizontalScrollIndicator={false}
                     ListFooterComponent={<View style={{flex: 1, width: 8}}/>}
-                    renderItem={({item, index}) => (
+                    ListHeaderComponent={ 
+                        <StoryCircleListItem
+                            avatarSize={avatarSize}
+                            handleStoryItemPress={() => {
+                                currentUserStories.length > 0 ? handleStoryItemPress(currentUserData, 0) : onCreate();
+                            }}
+                            unPressedBorderColor={unPressedBorderColor}
+                            pressedBorderColor={pressedBorderColor}
+                            item={currentUserData}
+                            renderCreateButton={renderCreateButton}
+                            currentUserId={currentUser.user_id}
+                        />
+                    }
+                    renderItem={({item, index}) => {
+                    return (
                         <StoryCircleListItem
                             avatarSize={avatarSize}
                             handleStoryItemPress={() =>
@@ -37,7 +61,7 @@ class StoryCircleListView extends Component {
                             pressedBorderColor={pressedBorderColor}
                             item={item}
                         />
-                    )}
+                    )}}
                 />
             </View>
         );

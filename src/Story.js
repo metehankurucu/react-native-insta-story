@@ -5,6 +5,7 @@ import StoryListItem from "./StoryListItem";
 import StoryCircleListView from "./StoryCircleListView";
 import {isNullOrWhitespace} from "./helpers/ValidationHelpers";
 import type {IUserStory} from "./interfaces/IUserStory";
+import type {IUser} from "./interfaces/IUser";
 import AndroidCubeEffect from "./AndroidCubeEffect";
 import CubeNavigationHorizontal from "./CubeNavigationHorizontal";
 
@@ -20,7 +21,11 @@ type Props = {
     customSwipeUpComponent?: any,
     customCloseComponent?: any,
     avatarSize?: number,
-    imageStyle?: any
+    imageStyle?: any,
+    renderCreateButton?: any,
+    currentUser?: IUser,
+    onCreate?: function,
+    
 };
 
 LogBox.ignoreLogs(['Warning: componentWillReceiveProps']); // Ignore log notification by message
@@ -38,7 +43,10 @@ export const Story = (props: Props) => {
         customSwipeUpComponent,
         customCloseComponent,
         avatarSize,
-        imageStyle
+        imageStyle,
+        renderCreateButton = () => null,
+        currentUser,
+        onCreate = () => {}
     } = props;
 
     const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,13 +56,9 @@ export const Story = (props: Props) => {
 
     // Component Functions
     const _handleStoryItemPress = (item, index) => {
-        const newData = data.slice(index);
-        if (onStart) {
-            onStart(item)
-        }
-
+        if (onStart) onStart(item);
         setCurrentPage(0);
-        setSelectedData(newData);
+        setSelectedData([item]);
         setIsModalOpen(true);
     };
 
@@ -137,12 +141,16 @@ export const Story = (props: Props) => {
     return (
         <Fragment>
             <View style={style}>
+
                 <StoryCircleListView
                     handleStoryItemPress={_handleStoryItemPress}
                     data={data}
                     avatarSize={avatarSize}
                     unPressedBorderColor={unPressedBorderColor}
                     pressedBorderColor={pressedBorderColor}
+                    renderCreateButton={renderCreateButton}
+                    currentUser={currentUser}
+                    onCreate={onCreate}
                 />
             </View>
             <Modal
